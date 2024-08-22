@@ -6,7 +6,7 @@
 /*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 21:22:48 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/22 21:53:46 by tubu             ###   ########.fr       */
+/*   Updated: 2024/08/23 02:29:18 by tubu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,31 @@ ssize_t	printstr(char *str)
 		i++;
 	}
 	return (out_len);
+}
+
+ssize_t	printnum(long long num, int format)
+{
+	char	*num_str;
+	ssize_t	print_len;
+
+	print_len = 0;
+	if (format == 'd' || format == 'i')
+		num_str = itoa_base((long long)num, BASE10, 0);
+	if (format == 'u')
+		num_str = itoa_base((long long)num, BASE10, 1);
+	if (format == 'x')
+		num_str = itoa_base((long long)num, BASE16, 0);
+	if (format == 'X')
+		num_str = itoa_base((long long)num, BASE16_U, 0);
+	print_len += printstr(num_str);
+	free(num_str);
+	return (print_len);
+}
+
+ssize_t	printptr(unsigned long long ptr)
+{
+	char	*num_str;
+
+	num_str = itoa_base((long long)ptr, BASE10, 1);
+	
 }
