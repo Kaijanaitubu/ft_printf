@@ -6,23 +6,39 @@
 /*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 20:31:55 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/22 20:51:00 by tubu             ###   ########.fr       */
+/*   Updated: 2024/08/22 21:54:35 by tubu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	printchar(char c)
+ssize_t	formats(va_list args, const char format)
 {
-	write(1, &c, 1);
-	return (1);
+	ssize_t	out_len;
+
+	out_len = 0;
+	if (format == 'c')
+		out_len += printchar(va_arg(args, int));
+	else if (format == 's')
+		out_len += printstr(va_arg(args, char *));
+	// else if (format == 'p')
+	// 	out_len += ;
+	// else if (format == 'd' || format == 'i')
+	// 	out_len += ;
+	// else if (format == 'u')
+	// 	out_len += ;
+	// else if (format == 'x' || format == 'X')
+	// 	out_len += ;
+	else if (format == '%')
+		out_len += printchar('%');
+	return (out_len);
 }
 
-int	ft_printf(const char *str, ...)
+ssize_t	ft_printf(const char *str, ...)
 {
-	int		i;
-	va_list	args;
-	int		out_len;
+	ssize_t		i;
+	va_list		args;
+	ssize_t		out_len;
 
 	i = 0;
 	out_len = 0;
@@ -31,11 +47,13 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
+			out_len += formats(args, str[i + 1]);
+			i++;
 		}
 		else
 			out_len += printchar(str[i]);
+		i++;
 	}
-	
 	va_end(args);
 	return (out_len);
 }

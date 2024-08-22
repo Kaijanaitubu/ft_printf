@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   printer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 20:36:12 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/22 21:47:16 by tubu             ###   ########.fr       */
+/*   Created: 2024/08/22 21:22:48 by tubu              #+#    #+#             */
+/*   Updated: 2024/08/22 21:53:46 by tubu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+ssize_t	printchar(int c)
+{
+	write(1, &c, 1);
+	return (1);
+}
 
-ssize_t	ft_printf(const char *str, ...);
-ssize_t	formats(va_list args, const char format);
-ssize_t	printchar(int c);
-ssize_t	printstr(char *str);
+ssize_t	printstr(char *str)
+{
+	ssize_t	i;
+	ssize_t	out_len;
 
-#endif
+	i = 0;
+	out_len = 0;
+	while (str[i])
+	{
+		out_len += printchar(str[i]);
+		i++;
+	}
+	return (out_len);
+}
