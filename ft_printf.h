@@ -6,7 +6,7 @@
 /*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 20:36:12 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/23 02:05:31 by tubu             ###   ########.fr       */
+/*   Updated: 2024/08/23 02:44:18 by tubu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ ssize_t	ft_printf(const char *str, ...);
 ssize_t	formats(va_list args, const char format);
 ssize_t	printchar(int c);
 ssize_t	printstr(char *str);
+ssize_t	printnum(long long num, int format);
+ssize_t	printptr(unsigned long long ptr);
 char	*itoa_base(long long num, char *base, int unsign);
 size_t	numlen(unsigned long long num, size_t base_len);
 size_t	ft_strlen(const char *s);

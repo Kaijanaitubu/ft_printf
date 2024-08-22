@@ -6,7 +6,7 @@
 /*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 20:31:55 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/23 02:21:21 by tubu             ###   ########.fr       */
+/*   Updated: 2024/08/23 02:43:40 by tubu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ ssize_t	formats(va_list args, const char format)
 		out_len += printchar(va_arg(args, int));
 	else if (format == 's')
 		out_len += printstr(va_arg(args, char *));
-	// else if (format == 'p')
-	// 	out_len += printptr();
+	else if (format == 'p')
+		out_len += printptr(va_arg(args, unsigned long long));
 	else if (format == 'd' || format == 'i')
 		out_len += printnum(va_arg(args, int), format);
-	else if (format == 'u')
+	else if (format == 'x' || format == 'X' || format == 'u')
 		out_len += printnum(va_arg(args, unsigned int), format);
-	else if (format == 'x' || format == 'X')
-		out_len += printnum(va_arg(args, long long), format);
 	else if (format == '%')
 		out_len += printchar('%');
 	return (out_len);
