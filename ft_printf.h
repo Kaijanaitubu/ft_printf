@@ -6,7 +6,7 @@
 /*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 20:36:12 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/23 02:44:18 by tubu             ###   ########.fr       */
+/*   Updated: 2024/08/23 03:04:30 by tubu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 # define BASE10 "0123456789"
 # define BASE16 "0123456789abcdef"

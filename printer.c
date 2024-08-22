@@ -6,11 +6,12 @@
 /*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 21:22:48 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/23 02:41:37 by tubu             ###   ########.fr       */
+/*   Updated: 2024/08/23 03:09:46 by tubu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 ssize_t	printchar(int c)
 {
@@ -20,17 +21,11 @@ ssize_t	printchar(int c)
 
 ssize_t	printstr(char *str)
 {
-	ssize_t	i;
-	ssize_t	out_len;
+	ssize_t	len;
 
-	i = 0;
-	out_len = 0;
-	while (str[i])
-	{
-		out_len += printchar(str[i]);
-		i++;
-	}
-	return (out_len);
+	len = ft_strlen(str);
+	write(1, str, len);
+	return (len);
 }
 
 ssize_t	printnum(long long num, int format)
