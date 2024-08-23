@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kmogami <kmogami@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 21:22:48 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/23 13:52:15 by tubu             ###   ########.fr       */
+/*   Updated: 2024/08/23 15:08:51 by kmogami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ ssize_t	printptr(unsigned long long ptr)
 	char	*ptr_str;
 	ssize_t	print_len;
 
-	if (!ptr)
-		return (printstr("(nil)"));
 	print_len = 0;
 	print_len += printstr("0x");
 	ptr_str = itoa_base((long long)ptr, BASE16, 1);
