@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kmogami <kmogami@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 20:31:55 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/23 14:17:55 by tubu             ###   ########.fr       */
+/*   Updated: 2024/08/23 18:24:39 by kmogami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ssize_t	formats(va_list args, const char format)
 	return (out_len);
 }
 
-ssize_t	ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	ssize_t		i;
 	va_list		args;
@@ -53,7 +53,7 @@ ssize_t	ft_printf(const char *str, ...)
 		i++;
 	}
 	va_end(args);
-	return (out_len);
+	return ((int)out_len);
 }
 
 // #include <stdio.h>

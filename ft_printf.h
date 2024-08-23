@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kmogami <kmogami@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 20:36:12 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/23 03:04:30 by tubu             ###   ########.fr       */
+/*   Updated: 2024/08/23 18:24:40 by kmogami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define BASE16 "0123456789abcdef"
 # define BASE16_U "0123456789ABCDEF"
 
-ssize_t	ft_printf(const char *str, ...);
+int		ft_printf(const char *str, ...);
 ssize_t	formats(va_list args, const char format);
 ssize_t	printchar(int c);
 ssize_t	printstr(char *str);

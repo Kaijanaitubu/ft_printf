@@ -6,7 +6,7 @@
 /*   By: kmogami <kmogami@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 21:22:48 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/23 15:08:51 by kmogami          ###   ########.fr       */
+/*   Updated: 2024/08/23 18:22:42 by kmogami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ ssize_t	printnum(long long num, int format)
 	if (format == 'u')
 		num_str = itoa_base((long long)num, BASE10, 1);
 	if (format == 'x')
-		num_str = itoa_base((long long)num, BASE16, 0);
+		num_str = itoa_base((long long)num, BASE16, 1);
 	if (format == 'X')
-		num_str = itoa_base((long long)num, BASE16_U, 0);
+		num_str = itoa_base((long long)num, BASE16_U, 1);
 	print_len += printstr(num_str);
 	free(num_str);
 	return (print_len);
@@ -57,6 +57,8 @@ ssize_t	printptr(unsigned long long ptr)
 	char	*ptr_str;
 	ssize_t	print_len;
 
+	if (!ptr)
+		return (printstr("(nil)"));
 	print_len = 0;
 	print_len += printstr("0x");
 	ptr_str = itoa_base((long long)ptr, BASE16, 1);
