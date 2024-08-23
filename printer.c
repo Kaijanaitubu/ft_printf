@@ -6,7 +6,7 @@
 /*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 21:22:48 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/23 03:09:46 by tubu             ###   ########.fr       */
+/*   Updated: 2024/08/23 13:52:15 by tubu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ ssize_t	printstr(char *str)
 {
 	ssize_t	len;
 
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	len = ft_strlen(str);
 	write(1, str, len);
 	return (len);
@@ -52,6 +57,8 @@ ssize_t	printptr(unsigned long long ptr)
 	char	*ptr_str;
 	ssize_t	print_len;
 
+	if (!ptr)
+		return (printstr("(nil)"));
 	print_len = 0;
 	print_len += printstr("0x");
 	ptr_str = itoa_base((long long)ptr, BASE16, 1);

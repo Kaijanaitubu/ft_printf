@@ -6,7 +6,7 @@
 /*   By: tubu <tubu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 22:07:11 by tubu              #+#    #+#             */
-/*   Updated: 2024/08/23 03:04:51 by tubu             ###   ########.fr       */
+/*   Updated: 2024/08/23 14:17:33 by tubu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*str_prep(size_t num_len)
 	str = (char *)malloc(sizeof(char) * (num_len + 1));
 	if (!str)
 		return (0);
+	str[0] = '0';
 	str[num_len] = '\0';
 	return (str);
 }
@@ -59,11 +60,11 @@ char	*itoa_base(long long num, char *base, int unsign)
 	if (unsign)
 		tmp_num = (unsigned long long)num;
 	else if (num < 0)
-		tmp_num = -num;
+		tmp_num = -(unsigned long long)num;
 	else
-		tmp_num = num;
+		tmp_num = (unsigned long long)num;
 	base_len = ft_strlen(base);
-	num_len = numlen(tmp_num, base_len) + (num < 0);
+	num_len = numlen(tmp_num, base_len) + (num < 0 && !unsign);
 	str = str_prep(num_len);
 	while (tmp_num != 0)
 	{
